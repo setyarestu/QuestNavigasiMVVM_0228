@@ -74,3 +74,39 @@ fun FormIsian(
                 color = Color.Red
             )
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                jenisK.forEach { item ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 8.dp)
+                    ) {
+                        RadioButton(
+                            selected = jenisKelaminPilih == item,
+                            onClick = { jenisKelaminPilih = item }
+                        )
+                        Text(text = item)
+                    }
+                }
+            }
+
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+
+            OutlinedTextField(
+                value = alamat,
+                singleLine = true,
+                modifier = Modifier.width(250.dp),
+                label = { Text(text = "Alamat") },
+                onValueChange = { alamat = it }
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
